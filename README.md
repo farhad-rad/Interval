@@ -113,6 +113,7 @@ var interval3 = new Interval<int>(null, null); // (-∞, ∞)
 Interval.Union(interval1, interval2); // (0, 15]
 Interval.Union(interval1, interval3); // (-∞, ∞)
 ```
+Above methods are also available in nn-static form. operator ```+``` calls the Union method.
 #### 5- Intersection
 ![Interval Intersection](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/330px-Venn0001.svg.png)
 ```lang-cs
@@ -125,6 +126,7 @@ var interval3 = new Interval<int>(null, null); // (-∞, ∞)
 Interval.Intersection(interval1, interval2); // [5, 10)
 Interval.Intersection(interval1, interval3); // (0, 10)
 ```
+Above methods are also available in nn-static form.
 #### 6- Subtraction
 The picture below indicates ```intervalB - intervalA```
 
@@ -137,6 +139,17 @@ var interval2 = new Interval<int>(5, 15); // [5, 15]
 Interval.Subtraction(interval1, interval2); // (0, 5)
 Interval.Subtraction(interval2, interval1); // [10, 15]
 ```
+Above methods are also available in nn-static form. operator ```-``` calls the Subtraction method.
+#### 6- Equality
+Two intervals are equal when both has the same type, edges are equal and inclusion of edges are the same.
+```
+var interval1 = new Interval<int>(0, 10); // [0, 10]
+var interval2 = new Interval<int>(0, 10; // [0, 10]
+var interval3 = new Interval<int>(0, 15); // [0, 15]
+interval1.Equals(interval2); // True
+interval1.Equals(interval3); // False
+```
+Operators ```==``` and ```!=``` calls the Equality method.
 ## Author
 [Farhad Rad](https://github.com/farhad-rad/); Ako Team ©
 ## License
