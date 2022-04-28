@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Ako.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Ako.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Authors>farhad-rad,Ako</Authors>
+    <Description>Interval structure</Description>
+    <Copyright>Ako ©</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+</Project>
