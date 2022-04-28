@@ -59,7 +59,7 @@ namespace Ako.IntervalCore
         /// <param name="rightStart">Start edge of second interval. Null acts as minus infinity</param>
         /// <param name="rightEnd">End edge of second interval. Null acts as infinity</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public static Interval<T> Union<T>(T? leftStart, T? leftEnd, T? rightStart, T? rightEnd) where T : struct, IComparable, IConvertible => Interval<T>.Union(leftStart, leftEnd, rightStart, rightEnd);
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Ako.IntervalCore
         /// <param name="rightStart">Start edge of second interval</param>
         /// <param name="rightEnd">End edge of second interval</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public static Interval<T> Union<T>(T leftStart, T leftEnd, T rightStart, T rightEnd) where T : struct, IComparable, IConvertible => Interval<T>.Union(leftStart, leftEnd, rightStart, rightEnd);
         
         /// <summary>
@@ -84,7 +84,7 @@ namespace Ako.IntervalCore
         /// <param name="left">The first interval</param>
         /// <param name="right">The second interval</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public static Interval<T> Union<T>(Interval<T> left, Interval<T> right) where T : struct, IComparable, IConvertible => Interval<T>.Union(left, right);
 
 
@@ -99,7 +99,7 @@ namespace Ako.IntervalCore
         /// <param name="rightStart">Start edge of second interval. Null acts as minus infinity</param>
         /// <param name="rightEnd">End edge of second interval. Null acts as infinity</param>
         /// <returns>Interval of intersection</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals dont have any overlaps</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals dont have any overlaps</exception>
         public static Interval<T> Intersection<T>(T? leftStart, T? leftEnd, T? rightStart, T? rightEnd) where T : struct, IComparable, IConvertible => Interval<T>.Intersection(leftStart, leftEnd, rightStart, rightEnd);
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Ako.IntervalCore
         /// <param name="rightStart">Start edge of second interval</param>
         /// <param name="rightEnd">End edge of second interval</param>
         /// <returns>Interval of intersection</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals dont have any overlaps</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals dont have any overlaps</exception>
         public static Interval<T> Intersection<T>(T leftStart, T leftEnd, T rightStart, T rightEnd) where T : struct, IComparable, IConvertible => Interval<T>.Intersection(leftStart, leftEnd, rightStart, rightEnd);
         
         /// <summary>
@@ -124,14 +124,14 @@ namespace Ako.IntervalCore
         /// <param name="left">The first interval</param>
         /// <param name="right">The second interval</param>
         /// <returns>Interval of intersection</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals dont have any overlaps</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals dont have any overlaps</exception>
         public static Interval<T> Intersection<T>(Interval<T> left, Interval<T> right) where T : struct, IComparable, IConvertible => Interval<T>.Intersection(left, right);
 
         /// <summary>
         /// Subtract the the first subtrahend interval (left) from the second minuend interval (right). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="leftStart">Start edge of first interval. Null acts as minus infinity</param>
         /// <param name="leftEnd">End edge of first interval. Null acts as infinity</param>
@@ -139,14 +139,14 @@ namespace Ako.IntervalCore
         /// <param name="rightEnd">End edge of second interval. Null acts as infinity</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public static Interval<T> Subtraction<T>(T? leftStart, T? leftEnd, T? rightStart, T? rightEnd) where T : struct, IComparable, IConvertible => Interval<T>.Subtraction(leftStart, leftEnd, rightStart, rightEnd);
 
         /// <summary>
         /// Subtract the the first subtrahend interval (left) from the second minuend interval (right). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="leftStart">Start edge of first interval</param>
         /// <param name="leftEnd">End edge of first interval</param>
@@ -154,20 +154,20 @@ namespace Ako.IntervalCore
         /// <param name="rightEnd">End edge of second interval</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public static Interval<T> Subtraction<T>(T leftStart, T leftEnd, T rightStart, T rightEnd) where T : struct, IComparable, IConvertible => Interval<T>.Subtraction(leftStart, leftEnd, rightStart, rightEnd);
 
         /// <summary>
         /// Subtract the the first subtrahend interval (left) from the second minuend interval (right). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="left">The first minuend interval</param>
         /// <param name="right">The second subtrahend interval</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public static Interval<T> Subtraction<T>(Interval<T> left, Interval<T> right) where T : struct, IComparable, IConvertible => Interval<T>.Subtraction(left, right);
     }
 }

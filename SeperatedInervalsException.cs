@@ -2,8 +2,8 @@
 
 namespace Ako.IntervalCore.Exceptions
 {
-    public class SeperatedInervalsException : Exception
+    public class SeparatedInervalsException : Exception
     {
-        public SeperatedInervalsException(string message) : base(message) { }
+        public SeparatedInervalsException(string message) : base(message) { }
     }
 }

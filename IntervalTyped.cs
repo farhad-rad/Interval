@@ -93,7 +93,7 @@ namespace Ako.IntervalCore
         /// </summary>
         /// <param name="right">The other interval</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public Interval<T> UnionWith(Interval<T> right) => Union(this, right);
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Ako.IntervalCore
         /// <param name="rightStart">Start edge of second interval. Null acts as minus infinity</param>
         /// <param name="rightEnd">End edge of second interval. Null acts as infinity</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public static Interval<T> Union(T? leftStart, T? leftEnd, T? rightStart, T? rightEnd) => Union(new(leftStart, leftEnd), new(rightStart, rightEnd));
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Ako.IntervalCore
         /// <param name="left">The first interval</param>
         /// <param name="right">The second interval</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public static Interval<T> Union(Interval<T> left, Interval<T> right)
         {
             if (HasOverlap(left, right) == false)
@@ -132,7 +132,7 @@ namespace Ako.IntervalCore
                     return new(left.Start, right.End, left.ExcludeStart, right.ExcludeEnd);
                 }
 
-                throw new SeperatedInervalsException("Specified intervals neither have any overlaps nor are continuous.");
+                throw new SeparatedInervalsException("Specified intervals neither have any overlaps nor are continuous.");
             }
 
             T? start;
@@ -196,7 +196,7 @@ namespace Ako.IntervalCore
         /// </summary>
         /// <param name="right">The other interval</param>
         /// <returns>Interval of intersection</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals dont have any overlaps</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals dont have any overlaps</exception>
         public Interval<T> IntersectionWith(Interval<T> right) => Intersection(this, right);
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace Ako.IntervalCore
         /// <param name="rightStart">Start edge of second interval. Null acts as minus infinity</param>
         /// <param name="rightEnd">End edge of second interval. Null acts as infinity</param>
         /// <returns>Interval of intersection</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals dont have any overlaps</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals dont have any overlaps</exception>
         public static Interval<T> Intersection(T? leftStart, T? leftEnd, T? rightStart, T? rightEnd) => Intersection(new(leftStart, leftEnd), new(rightStart, rightEnd));
 
         /// <summary>
@@ -221,12 +221,12 @@ namespace Ako.IntervalCore
         /// <param name="left">The first interval</param>
         /// <param name="right">The second interval</param>
         /// <returns>Interval of intersection</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals dont have any overlaps</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals dont have any overlaps</exception>
         public static Interval<T> Intersection(Interval<T> left, Interval<T> right)
         {
             if (HasOverlap(left, right) == false)
             {
-                throw new SeperatedInervalsException("Specified intervals do not have any overlaps.");
+                throw new SeparatedInervalsException("Specified intervals do not have any overlaps.");
             }
 
             T? start;
@@ -307,31 +307,31 @@ namespace Ako.IntervalCore
         /// Subtract this subtrahend interval from the minuend interval (left). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="left">The minuend interval</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public Interval<T> SubtractionFrom(Interval<T> left) => Subtraction(left, this);
 
         /// <summary>
         /// Subtract the the subtrahend interval (right) from this minuend interval. Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="right">The subtrahend interval</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public Interval<T> SubtractionBy(Interval<T> right) => Subtraction(this, right);
 
         /// <summary>
         /// Subtract the the first subtrahend interval (left) from the second minuend interval (right). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="leftStart">Start edge of first interval. Null acts as minus infinity</param>
         /// <param name="leftEnd">End edge of first interval. Null acts as infinity</param>
@@ -339,20 +339,20 @@ namespace Ako.IntervalCore
         /// <param name="rightEnd">End edge of second interval. Null acts as infinity</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public static Interval<T> Subtraction(T? leftStart, T? leftEnd, T? rightStart, T? rightEnd) => Subtraction(new(leftStart, leftEnd), new(rightStart, rightEnd));
 
         /// <summary>
         /// Subtract the the first subtrahend interval (left) from the second minuend interval (right). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="left">The first minuend interval</param>
         /// <param name="right">The second subtrahend interval</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public static Interval<T> Subtraction(Interval<T> left, Interval<T> right)
         {
             if (left.HasOverlapWith(right) == false)
@@ -387,20 +387,20 @@ namespace Ako.IntervalCore
         /// <param name="left">The first interval</param>
         /// <param name="right">The second interval</param>
         /// <returns>Interval of union</returns>
-        /// <exception cref="SeperatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
+        /// <exception cref="SeparatedInervalsException">When specified intervals neither have any overlaps nor are continuous</exception>
         public static Interval<T> operator +(Interval<T> left, Interval<T> right) => Union(left, right);
 
         /// <summary>
         /// Subtract the the first subtrahend interval (left) from the second minuend interval (right). Order matters. <br/>
         /// Throws exceptions when: <br/>
         ///     - Two intervals are equal thus the subtraction has no values.<br/>
-        ///     - The subtraction of two intervals result in two other seperated intervals.
+        ///     - The subtraction of two intervals result in two other separated intervals.
         /// </summary>
         /// <param name="left">The first minuend interval</param>
         /// <param name="right">The second subtrahend interval</param>
         /// <returns>Interval of subtraction</returns>
         /// <exception cref="NullInervalException">When two intervals are equal the subtraction has no values.</exception>
-        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other seperated intervals</exception>
+        /// <exception cref="InconsistentInervalException">When the subtraction of two intervals result in two other separated intervals</exception>
         public static Interval<T> operator -(Interval<T> left, Interval<T> right) => Subtraction(left, right);
 
         /// <summary>
@@ -593,7 +593,7 @@ namespace Ako.IntervalCore
 
             if (string.IsNullOrWhiteSpace(parts[0]))
             {
-                throw new ArgumentException(intervalToParse, "Interval string must be a valid notation having two values between parenthesis or brackets seperated by a comma");
+                throw new ArgumentException(intervalToParse, "Interval string must be a valid notation having two values between parenthesis or brackets separated by a comma");
             }
             else if (parts[0].StartsWith("("))
             {
@@ -619,7 +619,7 @@ namespace Ako.IntervalCore
 
             if (string.IsNullOrWhiteSpace(parts[1]))
             {
-                throw new ArgumentException(intervalToParse, "Interval string must be a valid notation having two values between parenthesis or brackets seperated by a comma");
+                throw new ArgumentException(intervalToParse, "Interval string must be a valid notation having two values between parenthesis or brackets separated by a comma");
             }
             else if (parts[1].EndsWith(")"))
             {
