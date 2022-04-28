@@ -8,7 +8,7 @@ dotnet add package Ako.Interval --version 1.0.0
 ## Documentation
 #### 1- Constructing Interval
 An standard interval contains two edges (endpoints). Each edge can be included withing the range or excluded. Also start edge can be minus infinity and end edge can be infinity. Every value (including edges) withing the range of interval must be comparable. Therefore you can simply construct an interval like below:
-```lang-cs
+```csharp
 using Ako.IntervalCore;
 using System;
 
@@ -54,7 +54,7 @@ namespace Program
 Interval can also be constructed using standard notation string. 
 An standard interval notation is an string having two values separated by a comma. It should be starting with ```[``` (open-bracket) as if start edge is included or ```(``` (open-parenthesis) as if start edge is excluded. It also should be ending with ```]``` (closed-bracket) or ```)``` (closed-parenthesis). As of the matter of infinity, ```∞``` symbol or the word ```infinity``` can be used as value.
 Note that the values of interval is casted into the given type using ```System.Convert```
-```lang-cs
+```csharp
 var interval1 = Interval.Parse<int>("[1, 10]");
 
 var interval2 = Interval.Parse<int>("(1, 10]");
@@ -65,7 +65,7 @@ var interval5 = Interval.Parse<int>("(infinity, infinity)");
 var interval6 = Interval.Parse<int>("(-∞, infinity)");
 ```
 Intervals can also be constructed using extension methods of namespace ```Ako.IntervalCore.Extensions```
-```lang-cs
+```csharp
 var interval1 = 1.IntervalUntil(5);
 // Standard notation: [1, 5]
 
@@ -74,7 +74,7 @@ var interval2 = 10.IntervalFrom(0, false);
 ```
 #### 2- Containing of a value
 You can simply check if a value is inside an intervals range or not.
-```lang-cs
+```csharp
 var interval1 = new Interval<int>(0, 100, false); // (0, 100]
 interval1.Contains(10); // True
 interval1.Contains(100); // True; End edge is included.
@@ -87,7 +87,7 @@ interval2.Contains(100); // True
 interval2.Contains(1100); // True
 ```
 #### 3- Overlaps check
-```lang-cs
+```csharp
 var interval1 = new Interval<int>(0, 10, false); // (0, 10]
 
 var interval2 = new Interval<int>(10, 20); // [10, 20]
@@ -103,7 +103,7 @@ Interval.HasOverlap(interval2, interval4); // True
 ```
 #### 4- Union
 ![Interval Union](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/300px-Venn0111.svg.png)
-```lang-cs
+```csharp
 var interval1 = new Interval<int>(0, 10, false, false); // (0, 10)
 
 var interval2 = new Interval<int>(5, 15); // [5, 15]
@@ -116,7 +116,7 @@ Interval.Union(interval1, interval3); // (-∞, ∞)
 Above methods are also available in nn-static form. operator ```+``` calls the Union method.
 #### 5- Intersection
 ![Interval Intersection](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/330px-Venn0001.svg.png)
-```lang-cs
+```csharp
 var interval1 = new Interval<int>(0, 10, false, false); // (0, 10)
 
 var interval2 = new Interval<int>(5, 15); // [5, 15]
@@ -131,7 +131,7 @@ Above methods are also available in nn-static form.
 The picture below indicates ```intervalB - intervalA```
 
 ![Interval Subtraction](https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Relative_compliment.svg/345px-Relative_compliment.svg.png)
-```lang-cs
+```csharp
 var interval1 = new Interval<int>(0, 10, false, false); // (0, 10)
 
 var interval2 = new Interval<int>(5, 15); // [5, 15]
