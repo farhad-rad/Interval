@@ -142,7 +142,7 @@ Interval.Subtraction(interval2, interval1); // [10, 15]
 Above methods are also available in nn-static form. operator ```-``` calls the Subtraction method.
 #### 6- Equality
 Two intervals are equal when both has the same type, edges are equal and inclusion of edges are the same.
-```
+```csharp
 var interval1 = new Interval<int>(0, 10); // [0, 10]
 var interval2 = new Interval<int>(0, 10; // [0, 10]
 var interval3 = new Interval<int>(0, 15); // [0, 15]
