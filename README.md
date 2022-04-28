@@ -127,6 +127,7 @@ Interval.Intersection(interval1, interval3); // (0, 10)
 ```
 #### 6- Subtraction
 The picture below indicates ```intervalB - intervalA```
+
 ![Interval Subtraction](https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Relative_compliment.svg/345px-Relative_compliment.svg.png)
 ```lang-cs
 var interval1 = new Interval<int>(0, 10, false, false); // (0, 10)
