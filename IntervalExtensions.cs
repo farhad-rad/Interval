@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ako.Interval.Extensions
+namespace Ako.IntervalCore.Extensions
 {
     public static class IntervalExtensions
     {

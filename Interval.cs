@@ -1,7 +1,7 @@
-﻿using Ako.Interval.Exceptions;
+﻿using Ako.IntervalCore.Exceptions;
 using System;
 
-namespace Ako.Interval
+namespace Ako.IntervalCore
 {
     public struct Interval
     {

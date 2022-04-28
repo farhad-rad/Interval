@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ako.Interval.Exceptions
+namespace Ako.IntervalCore.Exceptions
 {
     public class ReversedInervalEdgesException<T> : Exception where T : struct, IComparable
     {

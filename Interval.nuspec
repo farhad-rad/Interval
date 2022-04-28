@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+	<metadata>
+		<id>Ako.Interval</id>
+		<version>1.0.0</version>
+		<title>Interval</title>
+		<authors>farhad-rad,Ako</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<icon>content\icon.png</icon>
+		<readme>content\README.md</readme>
+		<projectUrl>https://github.com/farhad-rad/Interval/</projectUrl>
+		<description>Interval Structure for ASP.Net</description>
+		<releaseNotes>Initial Release</releaseNotes>
+		<repository type="git" url="https://github.com/farhad-rad/Interval.git" branch="master" commit="241770ac6356343bd8917c2134e3a79b648a4e83" />
+		<copyright>Ako ©</copyright>
+		<tags>Ako Interval Range ASP.NetCore C#</tags>
+	</metadata>
+	<files>
+		<file src="bin\Release\net5.0\Ako.Interval.dll" target="lib\net5.0" />
+		<file src="bin\Release\net5.0\Ako.Interval.deps.json" target="lib\net5.0" />
+		<file src="bin\Release\net5.0\Ako.Interval.pdb" target="lib\net5.0" />
+		<file src="bin\Release\net5.0\Ako.Interval.xml" target="lib\net5.0" />
+		<file src="icon.png" target="content\" />
+		<file src="README.md" target="content\" />
+	</files>
+</package>

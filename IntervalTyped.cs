@@ -1,8 +1,8 @@
-﻿using Ako.Interval.Exceptions;
+﻿using Ako.IntervalCore.Exceptions;
 using System;
 using System.Linq;
 
-namespace Ako.Interval
+namespace Ako.IntervalCore
 {
     public struct Interval<T> : IEquatable<Interval<T>> where T : struct, IComparable, IConvertible
     {
